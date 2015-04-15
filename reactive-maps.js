@@ -1,4 +1,4 @@
-Markers = new Mongo.Collection('markers');
+
 
 if (Meteor.isClient) {
   Template.map.onCreated(function() {
@@ -39,16 +39,19 @@ if (Meteor.isClient) {
 
   Meteor.startup(function() {
     GoogleMaps.load();
-  });
+
+    }
+  );
 
   Template.map.helpers({
     mapOptions: function() {
       if (GoogleMaps.loaded()) {
+        c = Config.findOne({});
         return {
-          // Cordoba
-          center: new google.maps.LatLng(-31.3987552,-64.1868587),
-          zoom: 8
-          //zoom: 12
+          
+          center: new google.maps.LatLng(c.lat,c.long),
+          zoom: c.zoom
+          
         };
       }
     }
