@@ -45,8 +45,10 @@ if (Meteor.isClient) {
     mapOptions: function() {
       if (GoogleMaps.loaded()) {
         return {
-          center: new google.maps.LatLng(-37.8136, 144.9631),
+          // Cordoba
+          center: new google.maps.LatLng(-31.3987552,-64.1868587),
           zoom: 8
+          //zoom: 12
         };
       }
     }
